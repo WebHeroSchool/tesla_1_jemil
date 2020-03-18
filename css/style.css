@@ -7,6 +7,7 @@ html {
   margin: 0;
   padding: 0;
   
+  
 }
 
 body {
@@ -59,8 +60,26 @@ a {
 
 .header-nav__link {
   padding: 0 25px;
+  position: relative;
 }
 
+.header-nav__link_active {
+  color: #E51937;
+}
+
+.header-nav__link_active:after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 65px;
+  height: 2px;
+  background-color: #E51937;
+  position: absolute;
+  left: 25px;
+  top: 21px;
+  border-bottom-left-radius:  10px;
+  border-bottom-right-radius: 10px;
+}
 
 
 .header-nav__btn {
@@ -77,13 +96,14 @@ a {
   text-align: center;
   margin-top: 4%;
   width: 100%;
-  background: url("/img/Tesla-Wordmark-Red.svg");
+  min-width: 375px;
+  background-image: url("../img/Tesla-Wordmark-Red.svg");
   background-size: cover;
-  background-position: 100% 75%;
+  background-position: 0% 80%;
 }
 
 .top-info__image {
-  margin-top: 26px;
+  margin-top: 5%;
   width: 70%;
 }
 
@@ -93,28 +113,41 @@ a {
   margin: 0;
 }
 
+@media only screen and (max-width: 411px) {
+  .top-info__title {
+    font-size: 3.125rem;
+  }
+  
+}
+
 .top-info__subtitle {
   font-weight: 500;
   font-size: 1.2rem;
   margin-top: 0;
 }
 
-.top-info__nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  justify-items: center;
-  align-items: center;
-
-}
-
 
 /* TOP-SECTION CAR STATS */
+
+.top-info__nav {
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  grid-template-rows: auto;
+  grid-column-gap: 60px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+
+}
 
 .top-info__speed_container,
 .top-info__range_container {
   grid-row: 1;
   min-width: 150px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 1px;
+  justify-content: center;
 }
 
 
@@ -163,9 +196,6 @@ a {
   font-weight: 700;
 }
 
-.top-info__wheel_red {
-  display: none;
-}
 
 @media only screen and (max-width: 768px) {
   .top-info__order {
@@ -174,27 +204,33 @@ a {
   }
 }
 
-
 .top-info__test-drive {
   grid-row: 1;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
-.top-info__drive {
-  margin-left: 11px;
-  font-weight: 700;
-  font-size: 0.925rem;
-  text-transform: uppercase;
+.top-info__drive_red {
+  position: absolute;
+  z-index: 1;
+}
+
+.top-info__drive_black {
+  z-index: 2;
+}
+
+.top-info__drive_black:hover {
+  z-index: 0;
 }
 
 @media only screen and (max-width: 768px) {
   
-  .top-info__wheel_red {
-    display: inline;
+  .top-info__drive_red {
+    display: block;
   }
 
-  .top-info__wheel {
+  .top-info__drive_black {
     display: none;
   }
 
@@ -207,6 +243,7 @@ a {
 
   .top-info__nav {
     grid-template-rows: minmax(120px, auto);
+    margin: 0 auto;
   }
 
   .top-info__speed_container {

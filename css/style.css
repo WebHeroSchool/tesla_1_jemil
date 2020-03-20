@@ -45,8 +45,6 @@ a {
   align-items: center;
 }
 
-.header-logo {
-}
 
 @media only screen and (max-width: 1059px) {
   .header-nav_hidden { 
@@ -54,8 +52,16 @@ a {
   }
 }
 
-.header-nav {
-  
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .header {
+    padding: 0 10px;
+  }
 }
 
 .header-nav__link {
@@ -97,14 +103,18 @@ a {
   margin-top: 4%;
   width: 100%;
   min-width: 375px;
-  background-image: url("../img/Tesla-Wordmark-Red.svg");
-  background-size: cover;
-  background-position: 0% 80%;
 }
 
 .top-info__image {
-  margin-top: 5%;
-  width: 70%;
+  margin: 0 auto;
+  padding-top: 15px;
+  text-align: center;
+  width: 100%;
+  min-width: 375px;
+  background-image: url("../img/Tesla-Wordmark-Red.svg");
+  background-size: cover;
+  background-position: 20% 85%;
+  background-position-x: center;
 }
 
 .top-info__title {
@@ -137,8 +147,9 @@ a {
   justify-items: center;
   align-items: center;
   justify-content: center;
-
+  margin: 0px 300px;
 }
+
 
 .top-info__speed_container,
 .top-info__range_container {
@@ -201,6 +212,7 @@ a {
   .top-info__order {
     background: #E51937;
     color: #fff;
+    max-width: 135px;
   }
 }
 
@@ -212,22 +224,26 @@ a {
 }
 
 .top-info__drive_red {
-  position: absolute;
-  z-index: 1;
+  display: none;
 }
 
+.top-info__test-drive:hover
+.top-info__drive_red {
+  display: inherit;
+  z-index: 3;
+}
+
+.top-info__test-drive:hover
 .top-info__drive_black {
-  z-index: 2;
+  display: none;
 }
 
-.top-info__drive_black:hover {
-  z-index: 0;
-}
+
 
 @media only screen and (max-width: 768px) {
   
   .top-info__drive_red {
-    display: block;
+    display: inherit;
   }
 
   .top-info__drive_black {

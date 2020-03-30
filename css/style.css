@@ -29,7 +29,6 @@ a {
   width: 100%;
   max-width: 1440px;
   min-width: 375px;
-  font-size: 16px;
   margin: 0 auto;
 }
 
@@ -289,35 +288,40 @@ padding-top: 35px;
   display: grid;
   grid-gap: 0;
   grid-row-gap: 0;
-  grid-template-columns: 1000px 220px 220px;
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 70% 15% 15%;
   width: 100%;
   min-width: 100%;
 }
 
 @media screen and (max-width: 768px) {
   .md-info {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 500px auto auto;
   }
 }
 
 .md-info__image-box {
-  width: 100%;
   grid-column: span 1;
-  grid-row: span 4;
+  grid-row: 1 / span 3;
+  height: 100%;
+  width: 100%;
   background-image: url("/img/2013-tesla-model-s-cockpit.png");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 100%;
+  background-position: 25% 90%;
+}
+
+
+.md-info__image-box img {
+  display: block;
 }
 
 @media screen and (max-width:768px) {
   .md-info__image-box {
     grid-column: 1 / span 2;
     grid-row: span 1;
-    height: 840px;
-    background: url("/img/2013-tesla-model-s-cockpit.png");
-    background-size: 100% 100%;
+    background-size: auto 100%;
+    background-position: 0 100%;
   }
 }
 
@@ -336,7 +340,15 @@ padding-top: 35px;
   font-weight: 600;
   line-height: 85px;
   color: #E51937;
-  background-color: white;
+}
+
+@media screen and (max-width:768px) {
+  .md-info__subtitle {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 60px;
+    text-align: end;
+  }
 }
 
 @media screen and (max-width:375px) {
@@ -363,7 +375,7 @@ padding-top: 35px;
 
 @media screen and (max-width:375px) {
   .md-info__about {
-    grid-column: span 2;
+    grid-column: 1 / span 2;
     grid-row: 2;
   }
 }
@@ -387,7 +399,7 @@ padding-top: 35px;
 
 .md-info__features {
   grid-column: 2 / span 3;
-  grid-row: 3;
+  grid-row: 2;
   padding-bottom: 170px;
 }
 
@@ -395,6 +407,12 @@ padding-top: 35px;
   .md-info__features {
     grid-column: 2;
     grid-row: 2;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .md-info__features {
+    display: none;
   }
 }
 
@@ -443,19 +461,19 @@ padding-top: 35px;
 .info-box__buttons {
   display: flex;
   justify-content: center;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 .info-box__buttons {
   grid-column: 2 / span 3;
-  grid-row: 4;
+  grid-row: 3;
   background-color: #E51937;
 }
 
 @media screen and (max-width:768px) {
   .info-box__buttons{
     grid-column: 1 / span 2;
-    grid-row: 5;
+    grid-row: 3;
   }
 }
 
@@ -489,13 +507,14 @@ padding-top: 35px;
 
 .bottom-info {
   display: grid;
-  grid-template-columns: 440px 7fr;
+  grid-template-columns: 30% 70%;
   grid-template-rows: repeat(5, auto);
 }
 
 @media screen and (max-width:768px) {
   .bottom-info {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
   }
 }
 
@@ -617,9 +636,8 @@ padding-top: 35px;
 }
 
 .bottom-image-box {
-  max-width: 1000px;
   grid-column: 2;
-  grid-row: 1 / span 5;
+  grid-row: 1 / 5;
   background: url("/img/Model\ S.png");
   background-repeat: no-repeat;
   background-position: 100% 70px;
@@ -629,22 +647,24 @@ padding-top: 35px;
   .bottom-image-box {
     grid-column: span 2;
     grid-row: 1;
-    background-size: 70% 20%;
-    background-position: 50% 20%;
   }
 }
 
 .bottom-image-box img {
+  width: 100%;
+  display: block;
   position: relative;
   top: 100px;
   right: 100px;
 }
 @media screen and (max-width:768px) {
   .bottom-image-box img {
-    position: static;
-    width: 100%;
+    vertical-align: bottom;
+    max-width: 100%;
     padding-top: 75px;
     padding-bottom: 35px;
+    top: 0;
+    right: 0;
   }
 }
 
